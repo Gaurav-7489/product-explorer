@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Explorer</title>
+  <meta name="description" content="Browse, search and filter products fetched live from the DummyJSON REST API.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Product Explorer</h1>
+      <p class="tagline">Browse products fetched live from the DummyJSON REST API.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Controls: search + category filter -->
+    <form id="controls" class="controls" role="search" autocomplete="off">
+      <div class="field field-search">
+        <label for="search-input">Search by title</label>
+        <input id="search-input" type="search" placeholder="e.g. phone, mascara, sofa" disabled>
+      </div>
+
+      <div class="field field-category">
+        <label for="category-select">Category</label>
+        <select id="category-select" disabled>
+          <option value="all">All categories</option>
+        </select>
+      </div>
+
+      <button id="reset-btn" type="button" class="btn btn-secondary" disabled>Clear filters</button>
+    </form>
+
+    <!-- Status line: loading / error / empty / result count.
+         aria-live so screen readers announce changes. -->
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <!-- Product cards are rendered here by script.js -->
+    <section id="product-grid" class="grid" aria-label="Products"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      Data from <a href="https://dummyjson.com/docs/products" target="_blank" rel="noopener">DummyJSON</a>.
+      Practice data only.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
